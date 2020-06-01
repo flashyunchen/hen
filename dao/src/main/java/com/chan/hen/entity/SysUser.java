@@ -1,5 +1,6 @@
 package com.chan.hen.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.chan.hen.base.BaseHenEntity;
@@ -13,17 +14,13 @@ import java.io.Serializable;
 /**
  * 管理员表(SysUser)实体类
  *
- * @author makejava
- * @since 2020-05-29 22:14:16
+ * @author chanyu
+ * @since 2020-06-01 20:48:27
  */
 @TableName("sys_user")
 @Data
 public class SysUser extends BaseHenEntity {
-    private static final long serialVersionUID = -21324885158886958L;
-    /**
-    * 主键id
-    */
-    @TableId
+    @TableId(type = IdType.AUTO)
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     /**

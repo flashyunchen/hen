@@ -25,40 +25,36 @@ public class BaseController<T extends BaseHenEntity ,S extends IBaseService<T>> 
     private IBaseService getBaseService(){
         ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
         Class clazz = (Class<T>) type.getActualTypeArguments()[0];
-        Class clazz1 = (Class<T>) type.getActualTypeArguments()[1];
-        System.out.println(clazz);
-        System.out.println(clazz1);
-
+        Class clazz1 = (Class<S>) type.getActualTypeArguments()[1];
         return (IBaseService) SpringUtil.getBean(clazz1);
     }
 
-
-    @PostMapping(value = "saveOrUpdateBatchLimit" )
+    @RequestMapping(value = "saveOrUpdateBatchLimit" , method = RequestMethod.POST)
     public R saveOrUpdateBatchLimit(@RequestParam List<T> entityList,@RequestParam int batchSize){
         boolean success=getBaseService().saveOrUpdateBatch(entityList,batchSize);
         return HenResult.ok(success);
     }
     @ApiOperation(value = "批量保存" ,notes = "批量保存")
-    @PostMapping(value = "saveOrUpdateBatch" )
+    @RequestMapping(value = "saveOrUpdateBatch" , method = RequestMethod.POST)
     public R saveOrUpdateBatch(@RequestBody List<T> entityList){
         boolean success=getBaseService().saveOrUpdateBatch(entityList);
         return HenResult.ok(success);
     }
     @ApiOperation(value = "根据ids删除" ,notes = "根据ids删除")
-    @DeleteMapping(value = "removeByIds" )
+    @RequestMapping(value = "removeByIds" ,method = RequestMethod.DELETE)
     public R removeByIds(@RequestParam Collection<? extends Serializable> idList){
         boolean success=getBaseService().removeByIds(idList);
         return HenResult.ok(success);
     }
     @ApiOperation(value = "根据map参数查询列表" ,notes = "根据map参数查询列表")
-    @GetMapping("listByMap")
+    @RequestMapping(value="listByMap" , method = RequestMethod.GET)
     public R listByMap(Map<String, Object> columnMap){
        List<T> list =getBaseService().listByMap(columnMap);
        return  HenResult.ok(list);
     }
 
     @ApiOperation(value = "分页查询" ,notes = "分页查询")
-    @GetMapping("listByPage")
+    @RequestMapping(value="listByPage" , method = RequestMethod.GET)
     public R listByPage(T t,
                            @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum
