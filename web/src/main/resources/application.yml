@@ -1,6 +1,23 @@
 spring:
   profiles:
     active: dev
+  type: com.zaxxer.hikari.HikariDataSource
+  hikari:
+    # 最小连接数
+    minimum-idle: 5
+    # 最大连接数
+    maximum-pool-size: 15
+    # 自动提交
+    auto-commit: true
+    # 获取连接池连接等待最大时长
+    idle-timeout: 30000
+    pool-name: henhikari
+    # 连接最长生存时间
+    max-lifetime: 1800000
+    # 连接超时时长
+    connection-timeout: 30000
+    # 连接测试查询
+    connection-test-query: select 1
 
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
