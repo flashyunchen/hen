@@ -19,6 +19,8 @@ spring:
     # 连接测试查询
     connection-test-query: select 1
 
+
+
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
@@ -49,3 +51,7 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull
     jdbc-type-for-null: 'null'
+logging:
+  level:
+    com.chan: debug
+    org.springframework: warn
