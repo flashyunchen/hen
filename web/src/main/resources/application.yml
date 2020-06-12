@@ -51,7 +51,4 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull
     jdbc-type-for-null: 'null'
-logging:
-  level:
-    com.chan: debug
-    org.springframework: warn
+
