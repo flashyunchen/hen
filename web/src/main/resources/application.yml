@@ -18,6 +18,30 @@ spring:
     connection-timeout: 30000
     # 连接测试查询
     connection-test-query: select 1
+  jackson:
+    # 时区，配合日期格式化使用，如果不设置，解析日期时会默认来源为UTC世界标准时区，再根据系统时区转换，不一致的话将产生差异
+    time-zone: GMT+8
+    #日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    #序列化的配置参数集
+    serialization:
+      #格式化输出
+      indent_output: true
+      #无法解析空对象时抛出异常，false即忽略这种情况不抛异常
+      fail_on_empty_beans: true
+      # 日期不转时间戳
+      write_date_keys_as_timestamps: false
+    #指定属性在什么情况下会包含在序列化结果中，这里设置不为空
+    defaultPropertyInclusion: NON_EMPTY
+    #反序列化配置
+    deserialization:
+      #未知的属性返回失败，false 即允许反序列化对象与序列存在属性不同的情况
+      fail_on_unknown_properties: false
+    parser:
+      #允许出现特殊字符和转义符
+      allow_unquoted_control_chars: true
+      #允许出现单引号
+      allow_single_quotes: true
 
 
 
