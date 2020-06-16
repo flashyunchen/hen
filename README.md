@@ -7,3 +7,4 @@ springboot 多模块项目搭建<br>
 [项目（一）springboot多模块工程（5）Hikari连接池配置](https://blog.csdn.net/qq_34453866/article/details/106677230)<br>
 [项目（一）springboot多模块工程（6）集成logback日志](https://blog.csdn.net/qq_34453866/article/details/106698404)<br>
 [项目（一）springboot多模块工程（7）jackson使用配置](https://blog.csdn.net/qq_34453866/article/details/106725103)<br>
+[项目（一）springboot多模块工程（8）控制器（controller）全局异常处理](https://blog.csdn.net/qq_34453866/article/details/106796821)<br>
