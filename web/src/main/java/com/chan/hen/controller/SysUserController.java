@@ -31,4 +31,16 @@ public class SysUserController extends BaseController<SysUser,SysUserService> {
          List<SysUser> list= sysUserService.queryAllByLimit(offset,limit);
          return  HenResult.ok(list);
     }
+
+    @ApiOperation(value = "异常测试" ,notes = "异常测试")
+    @RequestMapping(value = "exTest",method = RequestMethod.GET)
+    public R exTest() {
+        int a=2/0;
+        return  HenResult.ok("");
+    }
+    @ApiOperation(value = "乱码测试" ,notes = "乱码测试")
+    @RequestMapping(value = "encodeTest",method = RequestMethod.GET)
+    public R encodeTest() {
+        return  HenResult.ok("这是中文"+"abcd");
+    }
 }
