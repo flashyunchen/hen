@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,4 +44,69 @@ public class SysUserController extends BaseController<SysUser,SysUserService> {
     public R encodeTest() {
         return  HenResult.ok("这是中文"+"abcd");
     }
+
+    /**
+     * 处理"/users/"的GET请求，用来获取用户列表
+     *
+     * @return
+     */
+    @GetMapping("/")
+    public List<SysUser> getUserList() {
+        // 还可以通过@RequestParam从页面中传递参数来进行查询条件或者翻页信息的传递
+        return sysUserService.list();
+    }
+
+    /**
+     * 处理"/users/"的POST请求，用来创建User
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping("/")
+    public String postUser(@RequestBody SysUser user) {
+        // @RequestBody注解用来绑定通过http请求中application/json类型上传的数据
+        sysUserService.save(user);
+        return "success";
+    }
+
+    /**
+     * 处理"/users/{id}"的GET请求，用来获取url中id值的User信息
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public SysUser getUser(@PathVariable Long id) {
+        // url中的id可通过@PathVariable绑定到函数的参数中
+        return sysUserService.getById(id);
+    }
+
+    /**
+     * 处理"/users/{id}"的PUT请求，用来更新User信息
+     *
+     * @param id
+     * @param user
+     * @return
+     */
+    @PutMapping("/{id}")
+    public String putUser(@PathVariable Long id, @RequestBody SysUser user) {
+        user.setId(id);
+        sysUserService.updateById(user);
+        return "success";
+    }
+
+    /**
+     * 处理"/users/{id}"的DELETE请求，用来删除User
+     *
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        sysUserService.removeById(id);
+        return "success";
+    }
+
+
+
 }
