@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class SysUserController extends BaseController<SysUser,SysUserService> {
      * @return
      */
     @PostMapping("/")
-    public String postUser(@RequestBody SysUser user) {
+    public String postUser(@Valid  @RequestBody SysUser user) {
         // @RequestBody注解用来绑定通过http请求中application/json类型上传的数据
         sysUserService.save(user);
         return "success";
