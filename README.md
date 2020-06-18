@@ -9,3 +9,4 @@ springboot 多模块项目搭建<br>
 [项目（一）springboot多模块工程（7）jackson使用配置](https://blog.csdn.net/qq_34453866/article/details/106725103)<br>
 [项目（一）springboot多模块工程（8）控制器（controller）全局异常处理](https://blog.csdn.net/qq_34453866/article/details/106796821)<br>
 [项目（一）springboot多模块工程（9）使用MockMvc做单元测试](https://blog.csdn.net/qq_34453866/article/details/106819590)<br>
+[项目（一）springboot多模块工程（10）JSR-303实现请求参数校验](https://blog.csdn.net/qq_34453866/article/details/106819960)<br>
