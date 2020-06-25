@@ -3,9 +3,12 @@ package com.chan.hen.controller;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.chan.hen.base.BaseController;
 import com.chan.hen.base.HenResult;
+import com.chan.hen.core.defvalidator.Phone;
 import com.chan.hen.entity.SysUser;
 import com.chan.hen.service.SysUserService;
 import io.swagger.annotations.ApiOperation;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,6 +24,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("sysUser")
+@Validated//需要使用Hibernate非实体类参数校验，需要加入此注解
 public class SysUserController extends BaseController<SysUser,SysUserService> {
     /**
      * 服务对象
@@ -82,19 +86,19 @@ public class SysUserController extends BaseController<SysUser,SysUserService> {
         return sysUserService.getById(id);
     }
 
-    /**
+/*    *//**
      * 处理"/users/{id}"的PUT请求，用来更新User信息
      *
      * @param id
      * @param user
      * @return
-     */
+     *//*
     @PutMapping("/{id}")
     public String putUser(@PathVariable Long id, @RequestBody SysUser user) {
         user.setId(id);
         sysUserService.updateById(user);
         return "success";
-    }
+    }*/
 
     /**
      * 处理"/users/{id}"的DELETE请求，用来删除User
@@ -108,6 +112,13 @@ public class SysUserController extends BaseController<SysUser,SysUserService> {
         return "success";
     }
 
-
+    /**
+     * @param phone
+     * @return
+     */
+    @GetMapping("/checkPhone")
+    public @ResponseBody String checkPhone(@Phone @RequestParam String phone) {
+        return "正确的电话号码格式："+phone;
+    }
 
 }
