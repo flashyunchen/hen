@@ -11,3 +11,4 @@ springboot 多模块项目搭建<br>
 [项目（一）springboot多模块工程（9）使用MockMvc做单元测试](https://blog.csdn.net/qq_34453866/article/details/106819590)<br>
 [项目（一）springboot多模块工程（10）JSR-303实现请求参数校验](https://blog.csdn.net/qq_34453866/article/details/106819960)<br>
 [项目（一）springboot多模块工程（11）自定义校验参数注解，及参数校验失败统一处理](https://blog.csdn.net/qq_34453866/article/details/106962035)<br>
+[项目（一）springboot多模块工程（12）springboot run完成前执行监听（实现ApplicationRunner或CommandLineRunner）](https://blog.csdn.net/qq_34453866/article/details/106967063)<br>
