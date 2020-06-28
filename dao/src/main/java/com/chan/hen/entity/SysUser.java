@@ -4,10 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.chan.hen.base.BaseHenEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.io.Serializable;
 
@@ -30,10 +36,14 @@ public class SysUser extends BaseHenEntity {
     /**
     * 账号
     */
+    @NotNull
+    @Length(min = 6,max = 20)
     private String account;
     /**
     * 密码
     */
+    @NotNull
+    @Length(min = 6,max = 20)
     private String password;
     /**
     * md5密码盐
@@ -54,6 +64,7 @@ public class SysUser extends BaseHenEntity {
     /**
     * 电子邮件
     */
+    @Email
     private String email;
     /**
     * 电话
